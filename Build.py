@@ -45,7 +45,7 @@ tests_dir = PathEx.EnsureDir(this_dir / "tests")
 Black = RepoBuildTools.BlackFuncFactory(this_dir, app)
 
 Pylint = RepoBuildTools.PylintFuncFactory(
-    src_dir,
+    src_dir / "PythonProjectBootstrapperTest",
     app,
     default_min_score=9.5,
 )
