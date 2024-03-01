@@ -194,6 +194,7 @@ jobs:
       bootstrap_args: ""
       docker_description: "PythonProjectBootstrapperTest - ${{ matrix.python_version }}"
       push_image_as_package: true
+      container_registry_username: gt-sse-center
 
 
   # ----------------------------------------------------------------------
