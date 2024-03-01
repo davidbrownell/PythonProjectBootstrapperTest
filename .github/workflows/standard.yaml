@@ -192,6 +192,8 @@ jobs:
       python_version: ${{ matrix.python_version }}
       name_suffix: -${{ matrix.python_version }}
       bootstrap_args: ""
+      docker_description: "PythonProjectBootstrapperTest - ${{ matrix.python_version }}"
+      push_image_as_package: true
 
 
   # ----------------------------------------------------------------------

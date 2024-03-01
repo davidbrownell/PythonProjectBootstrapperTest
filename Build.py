@@ -38,6 +38,7 @@ app = typer.Typer(
 # ----------------------------------------------------------------------
 this_dir = PathEx.EnsureDir(Path(__file__).parent)
 src_dir = PathEx.EnsureDir(this_dir / "src")
+package_dir = PathEx.EnsureDir(src_dir / "PythonProjectBootstrapperTest")
 tests_dir = PathEx.EnsureDir(this_dir / "tests")
 
 
@@ -45,21 +46,21 @@ tests_dir = PathEx.EnsureDir(this_dir / "tests")
 Black = RepoBuildTools.BlackFuncFactory(this_dir, app)
 
 Pylint = RepoBuildTools.PylintFuncFactory(
-    src_dir / "PythonProjectBootstrapperTest",
+    package_dir,
     app,
     default_min_score=9.5,
 )
 
 Pytest = RepoBuildTools.PytestFuncFactory(
     tests_dir,
-    "PythonProjectBootstrapperTest",
+    package_dir.name,
     app,
     default_min_coverage=90.0,
 )
 
 UpdateVersion = RepoBuildTools.UpdateVersionFuncFactory(
     src_dir,
-    PathEx.EnsureFile(src_dir / "PythonProjectBootstrapperTest" / "__init__.py"),
+    PathEx.EnsureFile(package_dir / "__init__.py"),
     app,
 )
 
